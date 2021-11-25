@@ -1,0 +1,16 @@
+{
+  "name": "csv2json",
+  "version": "1.0.0",
+  "description": "practice node csv2json",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "csv2json",
+    "node",
+    "json"
+  ],
+  "author": "Draigon07",
+  "license": "ISC"
+}
