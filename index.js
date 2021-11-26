@@ -18,11 +18,8 @@ function csv2json(fileName){
            record[headers] = values[i]
        })
        records.push(record);
-
-
    })
-
-  return records
+   saveOnFile(fileName2,records)
 }
 
 const contacts = csv2json(fileName1)
@@ -36,23 +33,25 @@ function saveOnFile(fileName, outData) {
     fs.readFile(fileName, 'utf8', (err, data) => {
         if (err) {
             console.log(err);
-        } else {
+        } else{
             let json = JSON.stringify(outData); //convert it back to json
-            data = json
-            fs.appendFile(fileName2, data, (err, data) => {
-                if (err) {
-                    console.log(err);
-                } else {
-                    console.log("Save on file");
-                }
-            });
-
+            data = json;
+        fs.appendFile(fileName2, data, (err, data) => {
+                    if (err) {
+                        console.log(err);
+                        console.log(data)
+                    } else {
+                        console.log("Save on file");
+                    }
+                })
         }
     });
 
 }
 
-saveOnFile(fileName2,contacts)
+
+
+
 
 
 
