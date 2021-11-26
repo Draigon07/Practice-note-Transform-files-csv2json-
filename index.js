@@ -19,10 +19,23 @@ function csv2json(fileName){
        })
        records.push(record);
    })
-   saveOnFile(fileName2,records)
+   const newData = [];
+     const extract = records.forEach(el=>{
+         let email = el.Email
+         let name = `${el.FirstName} ${el.LastName}`
+         let phone = el. MobilePhone
+         let datos = [`Nombre: ${name} Email: ${email}  Phone: ${phone}`]
+         console.log(name)
+         newData.push(datos)
+     })
+     console.log(newData)
+     if(fileName2.length === 0){
+         saveOnFile(fileName2,newData)
+     }else{
+         console.log("The file has already been saved")
+     }
 }
-
-const contacts = csv2json(fileName1)
+ csv2json(fileName1)
 
 
 
@@ -39,7 +52,7 @@ function saveOnFile(fileName, outData) {
         fs.appendFile(fileName2, data, (err, data) => {
                     if (err) {
                         console.log(err);
-                        console.log(data)
+    
                     } else {
                         console.log("Save on file");
                     }
